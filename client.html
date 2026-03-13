@@ -1406,7 +1406,7 @@ a{text-decoration:none;}
 <div class="toast-container" id="toasts"></div>
 <div id="screen-client" class="screen active" style="display:flex;flex-direction:column;min-height:100vh;">
   <nav class="top-nav">
-    <div class="nav-logo" id="nav-logo-secret" title="">
+    <div class="nav-logo" id="nav-logo-secret" title="" onclick="resetToHome()" style="cursor:pointer;">
       <div class="nav-logo-mark">V+</div>
       <div class="nav-logo-name">Vendor<span>+</span></div>
     </div>
@@ -1831,7 +1831,7 @@ a{text-decoration:none;}
                   </div>
                   <div style="padding-top:8px;">
                     <div class="status-text-title">Agent Verifying</div>
-                    <div class="status-text-sub">Agent is confirming receipt on VendorPlus</div>
+                    <div class="status-text-sub">Agent is confirming receipt via Telegram</div>
                   </div>
                 </div>
                 <div class="status-row">
@@ -1868,19 +1868,19 @@ a{text-decoration:none;}
 
 <!-- ── HOW IT WORKS TAB ── -->
       <div id="tab-how" style="display:none;">
-        <div style="max-width:640px;margin:0 auto;padding:8px 0;">
+        <div style="max-width:100%;width:100%;margin:0 auto;padding:16px 24px;box-sizing:border-box;">
           <div style="font-size:22px;font-weight:800;color:var(--text);margin-bottom:4px;">How VendorPlus Works</div>
           <div style="font-size:13px;color:var(--text-dim);margin-bottom:20px;">Agent-verified payments in 4 simple steps</div>
           <div class="terms-section">
             <div class="how-step"><div class="how-step-num">1</div><div class="how-step-body"><h4>Choose Your Payment Method</h4><p>Browse 54+ options — mobile money, crypto, bank transfers, or digital wallets. Filter by country or category. Each method shows the agent, fee %, and a live countdown timer showing how long they've been active.</p></div></div>
             <div class="how-step"><div class="how-step-num">2</div><div class="how-step-body"><h4>Get Payment Details</h4><p>You'll see the exact account number/wallet address to send to, your unique transaction reference (VP-XXXX), and a step-by-step guide for your chosen method. The reference MUST appear in your payment notes.</p></div></div>
             <div class="how-step"><div class="how-step-num">3</div><div class="how-step-body"><h4>Send & Upload Proof</h4><p>Complete your payment externally (in your bank app, mobile money, or crypto wallet). Then upload a screenshot and enter your sender name. Both are required — this protects you and the agent.</p></div></div>
-            <div class="how-step"><div class="how-step-num">4</div><div class="how-step-body"><h4>VendorPlus Verifies &amp; Confirms</h4><p>Your agent is notified on VendorPlus and confirms receipt. You'll see a live status update on screen. If not confirmed within 15 minutes, it automatically escalates to admin. A downloadable receipt is generated on confirmation.</p></div></div>
+            <div class="how-step"><div class="how-step-num">4</div><div class="how-step-body"><h4>VendorPlus Verifies &amp; Confirms</h4><p>Your agent is notified on VendorPlus and confirms receipt. You'll see a live status update on screen. If not confirmed within 15 minutes, it escalates to admin. A downloadable receipt is generated on confirmation.</p></div></div>
           </div>
           <div class="terms-section">
             <h3>⚡ What makes VendorPlus different?</h3>
             <ul>
-              <li>Every agent is verified and approved directly by VendorPlus before handling any transactions</li>
+              <li>Every agent is Telegram-verified and pinged every 30 minutes to confirm they're active</li>
               <li>Screenshot proof is mandatory — no proof, no confirmation</li>
               <li>Your transaction reference auto-generates and tracks your payment end-to-end</li>
               <li>If anything goes wrong, you get escalation to admin automatically</li>
@@ -1932,14 +1932,14 @@ a{text-decoration:none;}
             <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How long does confirmation take? <span>+</span></div><div class="faq-a">Most agents confirm within 5–15 minutes. If the agent doesn't respond within 15 minutes, the transaction automatically escalates to admin. You'll see a status update in Step 4.</div></div>
             <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Is my screenshot stored securely? <span>+</span></div><div class="faq-a">Your screenshot is only shared with the assigned agent for verification. It is not stored permanently on public servers.</div></div>
             <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What currencies are supported? <span>+</span></div><div class="faq-a">We support KES, UGX, NGN, GHS, USD, GBP, EUR, XOF, TZS, ZAR, INR and all major cryptocurrencies. The currency depends on the payment method you select.</div></div>
-            <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">I sent to the wrong account. What do I do? <span>+</span></div><div class="faq-a">Contact support immediately using the Help button (bottom right of this page). Include your VP reference, amount, and proof. We will do our best to assist but cannot guarantee recovery for incorrect transfers.</div></div>
+            <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">I sent to the wrong account. What do I do? <span>+</span></div><div class="faq-a">Contact the agent immediately via Telegram using the Help button (bottom right of this page). Include your VP reference, amount, and proof. We will do our best to assist but cannot guarantee recovery for incorrect transfers.</div></div>
           </div>
         </div>
       </div>
 
       <!-- ── FEE CALCULATOR TAB ── -->
       <div id="tab-calc" style="display:none;">
-        <div style="max-width:560px;margin:0 auto;padding:8px 0;">
+        <div style="max-width:100%;width:100%;margin:0 auto;padding:16px 24px;box-sizing:border-box;">
           <div style="font-size:22px;font-weight:800;color:var(--text);margin-bottom:4px;">Fee Calculator</div>
           <div style="font-size:13px;color:var(--text-dim);margin-bottom:20px;">See exactly what you'll pay before starting</div>
           <div class="card" style="padding:24px;">
@@ -3421,7 +3421,7 @@ const STRINGS = {
   stat_confirm:       {en:'Avg Confirm', fr:'Confirmation Moy.', es:'Confirmación Prom.', ar:'متوسط التأكيد', sw:'Uthibitisho wa Wastani', zh:'平均确认', hi:'औसत पुष्टि', pt:'Confirmação Méd.', de:'Ø Bestätigung', ru:'Ср. подтверждение', ja:'平均確認', ha:'Matsakaicin tabbatarwa'},
   // TRUST BADGES
   trust_1:            {en:'Screenshot proof required', fr:'Capture d\'écran requise', es:'Captura de pantalla requerida', ar:'مطلوب لقطة شاشة', sw:'Picha ya skrini inahitajika', zh:'需要截图证明', hi:'स्क्रीनशॉट प्रमाण आवश्यक', pt:'Comprovante de captura exigido', de:'Screenshot-Nachweis erforderlich', ru:'Скриншот обязателен', ja:'スクリーンショット必須', ha:'Ana bukatar hoton allo'},
-  trust_2:            {en:'VendorPlus-verified agents', fr:'Agents vérifiés Telegram', es:'Agentes verificados por Telegram', ar:'وكلاء موثوقون عبر تيليغرام', sw:'Mawakala wanaothibitishwa na Telegram', zh:'Telegram验证代理', hi:'Telegram-सत्यापित एजेंट', pt:'Agentes verificados no Telegram', de:'Telegram-verifizierte Agenten', ru:'Агенты верифицированы в Telegram', ja:'Telegram認証エージェント', ha:'Wakilan da Telegram ya tabbatar'},
+  trust_2:            {en:'Telegram-verified agents', fr:'Agents vérifiés Telegram', es:'Agentes verificados por Telegram', ar:'وكلاء موثوقون عبر تيليغرام', sw:'Mawakala wanaothibitishwa na Telegram', zh:'Telegram验证代理', hi:'Telegram-सत्यापित एजेंट', pt:'Agentes verificados no Telegram', de:'Telegram-verifizierte Agenten', ru:'Агенты верифицированы в Telegram', ja:'Telegram認証エージェント', ha:'Wakilan da Telegram ya tabbatar'},
   trust_3:            {en:'30-min window per transaction', fr:'Fenêtre de 30 min par transaction', es:'Ventana de 30 min por transacción', ar:'نافذة 30 دقيقة لكل معاملة', sw:'Dakika 30 kwa kila muamala', zh:'每笔交易30分钟窗口', hi:'प्रति लेनदेन 30 मिनट', pt:'Janela de 30 min por transação', de:'30-Min-Fenster je Transaktion', ru:'30-минутное окно на транзакцию', ja:'取引ごとに30分のウィンドウ', ha:'Mintuna 30 a kowace ma\'amala'},
   trust_4:            {en:'Auto reference tracking', fr:'Suivi de référence auto', es:'Seguimiento de referencia auto', ar:'تتبع المرجع تلقائياً', sw:'Ufuatiliaji wa kumbukumbu otomatiki', zh:'自动参考跟踪', hi:'ऑटो संदर्भ ट्रैकिंग', pt:'Rastreamento de referência automático', de:'Automatische Referenzverfolgung', ru:'Авто-отслеживание ссылок', ja:'自動参照追跡', ha:'Bin diddigin manazarta ta atomatik'},
   // STEP LABELS
@@ -3753,9 +3753,9 @@ function closeReceipt(e) {
   document.body.style.overflow = '';
 }
 
-function closeReceiptBtn(){
-  document.getElementById('receipt-overlay').style.display='none';
-  document.body.style.overflow='';
+function closeReceiptBtn() {
+  document.getElementById('receipt-overlay').style.display = 'none';
+  document.body.style.overflow = '';
   resetToHome();
 }
 
@@ -4039,21 +4039,21 @@ function populateCalcSelect() {
   });
 }
 
-function calcFee(){
-  var sel=document.getElementById('calc-method-sel');
-  var amt=parseFloat(document.getElementById('calc-amount').value)||0;
-  var res=document.getElementById('calc-results');
-  if(!sel||!sel.value||amt<=0){ if(res) res.style.display='none'; return; }
-  var m=METHODS.find(function(x){ return x.id===sel.value; });
-  if(!m) return;
-  var feePct=parseFloat(m.fee)/100;
-  var feeAmt=amt*feePct;
-  var receive=amt-feeAmt;
-  document.getElementById('calc-fee-amt').textContent='$'+feeAmt.toFixed(2);
-  document.getElementById('calc-fee-pct').textContent=m.fee+'% platform fee';
-  document.getElementById('calc-total').textContent='$'+receive.toFixed(2);
-  document.getElementById('calc-method-name').textContent=m.name;
-  if(res) res.style.display='block';
+function calcFee() {
+  const sel = document.getElementById('calc-method-sel');
+  const amt = parseFloat(document.getElementById('calc-amount').value) || 0;
+  const res = document.getElementById('calc-results');
+  if (!sel || !sel.value || amt <= 0) { if(res) res.style.display='none'; return; }
+  const m = METHODS.find(x => x.id === sel.value);
+  if (!m) return;
+  const feePct = parseFloat(m.fee) / 100;
+  const feeAmt = amt * feePct;
+  const receive = amt - feeAmt;
+  document.getElementById('calc-fee-amt').textContent = '$' + feeAmt.toFixed(2);
+  document.getElementById('calc-fee-pct').textContent = m.fee + '% platform fee';
+  document.getElementById('calc-total').textContent   = '$' + receive.toFixed(2);
+  document.getElementById('calc-method-name').textContent = m.name;
+  if (res) res.style.display = 'block';
 }
 
 /* ═══════════════════════════════════════════════
